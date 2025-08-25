@@ -1,3 +1,4 @@
+import "../styles.css";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
@@ -34,26 +35,71 @@ export default function Prediction() {
   }, [symbol]);
 
   return (
-    <div className="card">
-      <h1>Prediction for {symbol.toUpperCase()}</h1>
+    <div className="card-prediction">
+      <h1 className="preheading">Prediction for {symbol.toUpperCase()}</h1>
       {status && <p>{status}</p>}
 
       {prediction && (
-        <p>
-          {symbol.toUpperCase()} →{" "}
+        <p
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "60px",
+            fontSize: "2rem",
+          }}
+        >
+          {/* {symbol.toUpperCase()} →{" "} */}
           {prediction.LSTM !== undefined && (
-            <span>LSTM: {Number(prediction.LSTM).toFixed(2)} </span>
+            <span
+              style={{
+                backgroundColor: "green",
+                padding: "20px",
+                borderRadius: "10px",
+                border: "2px solid skyblue",
+              }}
+            >
+              <span style={{ marginBottom: "20px", fontWeight: "bold" }}>
+                LSTM
+              </span>{" "}
+              <div>{Number(prediction.LSTM).toFixed(2)}</div>{" "}
+            </span>
           )}
           {prediction.GRU !== undefined && (
-            <span>
-              {prediction.LSTM !== undefined ? " | " : ""}
-              GRU: {Number(prediction.GRU).toFixed(2)}
+            <span
+              style={{
+                backgroundColor: "#4A3699",
+                padding: "20px",
+                borderRadius: "10px",
+                border: "2px solid skyblue",
+              }}
+            >
+              {prediction.LSTM !== undefined ? "  " : ""}
+              <span>
+                <span
+                  style={{
+                    marginBottom: "20px",
+                    color: "white",
+                    fontWeight: "bold",
+                  }}
+                >
+                  GRU
+                </span>
+              </span>{" "}
+              <div style={{ color: "white" }}>
+                {Number(prediction.GRU).toFixed(2)}
+              </div>
             </span>
           )}
         </p>
       )}
 
-      <Link to="/">Back</Link>
+      <Link
+        to="/"
+        style={{ color: "white", textDecoration: "none" }}
+        className="back-page"
+      >
+        back
+      </Link>
     </div>
   );
 }

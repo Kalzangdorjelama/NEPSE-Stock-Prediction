@@ -1,3 +1,4 @@
+import "../styles.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -24,15 +25,17 @@ export default function Home() {
   }, []);
 
   function handlePredict() {
-  if (symbol) {
-    navigate(`/stock/${symbol.toUpperCase()}`);
+    if (symbol) {
+      navigate(`/stock/${symbol.toUpperCase()}`);
+    }
   }
-}
 
   return (
-    <div className="card">
-      <h1>NEPSE Stock Predictor</h1>
-      <label>Select Stock Symbol:</label>
+    <div className="card-home">
+      <h1 style={{ margin: "20px", fontSize: "4rem" }}>
+        NEPSE Stock Predictor
+      </h1>
+      <label style={{ fontSize: "2rem" }}>Select Stock Symbol:</label>
       <select
         disabled={loading || !symbols.length}
         value={symbol}
@@ -41,7 +44,7 @@ export default function Home() {
         {loading && <option>Loading symbols…</option>}
         {!loading &&
           symbols.map((s) => (
-            <option key={s} value={s}>
+            <option key={s} value={s} style={{ height: "20px" }}>
               {s}
             </option>
           ))}

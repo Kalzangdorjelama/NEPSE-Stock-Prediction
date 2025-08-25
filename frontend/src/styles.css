@@ -5,65 +5,122 @@ body {
   margin: 0;
   background: #0b1220;
   color: #e6ecff;
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
+  overflow: hidden;
 }
+
 .app {
   width: 100%;
   padding: 24px;
 }
-.card {
+
+.card-home {
   margin: 0 auto;
-  max-width: 720px;
+  height: 100vh;
+  width: 100vw;
   background: #131a2a;
   border: 1px solid #1f2a44;
-  border-radius: 16px;
-  padding: 24px;
+  background-image: url("../public/home-Page-img.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  /* margin-bottom: 200px; */
+  text-align: center;
 }
+
 h1 {
-  margin-top: 0;
-  margin-bottom: 16px;
-  font-size: 1.5rem;
+  margin-bottom: 20px;
+  /* font-size: 1rem; */
 }
+
 label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
 }
+
 select,
 button {
   font: inherit;
   padding: 10px 12px;
   border-radius: 10px;
-  border: 1px solid #2a3a64;
+  border: 2px solid #2a3a64;
   background: #0f1626;
   color: #e6ecff;
+  cursor: pointer;
+  margin-bottom: 20px;
+  outline: none;
 }
+
 select {
   margin-right: 12px;
   min-width: 200px;
+  padding-right: -10px;
 }
+select:hover {
+  background: #212f50;
+}
+
 button {
   cursor: pointer;
   transition: transform 0.08s ease;
+  outline: none;
 }
+button:hover {
+  background: #212f50;
+}
+
 button:active {
   transform: translateY(1px);
 }
+
 button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
+
 .result {
   margin-top: 18px;
 }
+
 .status {
   opacity: 0.85;
   margin: 0 0 6px;
 }
+
 .pred {
   font-size: 1.05rem;
   font-weight: 600;
+}
+
+.card-prediction {
+  margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
+  background: #131a2a;
+  border: 1px solid #1f2a44;
+  background-image: url("../public/prediction-Page-img.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.back-page {
+  background-color: #0f1626;
+  padding: 10px;
+  border: 1px solid green;
+  border-radius: 10px;
 }
