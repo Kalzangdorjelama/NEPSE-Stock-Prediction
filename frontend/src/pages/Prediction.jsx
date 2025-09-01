@@ -3,6 +3,13 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 const API = "http://localhost:8000";
+const today = new Date();
+
+// make a copy of today
+const tomorrow = new Date(today);
+tomorrow.setDate(today.getDate() + 1);
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+
 
 export default function Prediction() {
   const { symbol } = useParams(); // from URL
@@ -37,6 +44,7 @@ export default function Prediction() {
   return (
     <div className="card-prediction">
       <h1 className="preheading">Prediction for {symbol.toUpperCase()}</h1>
+      <h3>{tomorrow.toLocaleDateString('en-US', options)}</h3>
       {status && <p>{status}</p>}
 
       {prediction && (
@@ -98,7 +106,7 @@ export default function Prediction() {
         style={{ color: "white", textDecoration: "none" }}
         className="back-page"
       >
-        back
+        Back
       </Link>
     </div>
   );
