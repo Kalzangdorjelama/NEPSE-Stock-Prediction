@@ -19,7 +19,7 @@ body {
   width: 100vw;
   background: #131a2a;
   border: 1px solid #1f2a44;
-  background-image: url("../public/home-Page-img.jpg");
+  background-image: url("./assets/home-Page-img.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -105,7 +105,7 @@ button:disabled {
   width: 100vw;
   background: #131a2a;
   border: 1px solid #1f2a44;
-  background-image: url("../public/prediction-Page-img.jpg");
+  background-image: url("./assets/prediction-Page-img.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
