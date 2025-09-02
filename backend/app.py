@@ -154,7 +154,7 @@ def predict(req: PredictRequest):
     stock = Stock(symbol)
     processor = ClosePriceProcessor(stock)
     df = processor.fetch_close_prices()
-    # print("PC",df)
+    print("PC",df)
 
     results: Dict[str, float] = {}
     for model_type in ["LSTM", "GRU"]:

@@ -43,7 +43,7 @@ export default function Home() {
       >
         {loading && <option>Loading symbols…</option>}
         {!loading &&
-          symbols.map((s) => (
+          symbols.map((s,_) => (
             <option key={s} value={s} style={{ height: "20px" }}>
               {s}
             </option>
