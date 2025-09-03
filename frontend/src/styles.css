@@ -124,3 +124,10 @@ button:disabled {
   border: 1px solid green;
   border-radius: 10px;
 }
+
+.back-page:hover {
+  background-color: rgb(34, 34, 76);
+  transition: all 0.1s ease-in; /* specify what property and duration */
+  transform: translateX(2px);  /* proper translate usage */
+  border: 1px solid white;
+}

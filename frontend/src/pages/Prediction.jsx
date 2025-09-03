@@ -21,7 +21,8 @@ export default function Prediction() {
   const [prediction, setPrediction] = useState(null);
   const [averagePrediction, setAveragePrediction] = useState(null);
   const [status, setStatus] = useState(LoadingSpinner());
-  console.log(prediction);
+  console.log("SYMBOL: ", symbol);
+  console.log("PREDICTION :", prediction);
 
   useEffect(() => {
     async function fetchPrediction() {
@@ -54,8 +55,8 @@ export default function Prediction() {
 
   return (
     <div className="card-prediction" style={{ position: "relative" }}>
-      <h1 className="preheading">
-        Next day closing price prediction for{" "}
+      <h1 className="preheading" style={{ textAlign: "center" }}>
+        Prediction of the next day’s closing price for {" "}
         <span
           style={{
             backgroundColor: "black",
@@ -66,7 +67,9 @@ export default function Prediction() {
           {symbol.toUpperCase()}
         </span>
       </h1>
-      <h3 style={{marginBottom:"80px"}}>{tomorrow.toLocaleDateString("en-US", options)}</h3>
+      <h3 style={{ marginBottom: "80px" }}>
+        {tomorrow.toLocaleDateString("en-US", options)}
+      </h3>
       {status && <p>{status}</p>}
 
       {prediction && (
@@ -98,7 +101,7 @@ export default function Prediction() {
                   border: "2px solid skyblue",
                 }}
               >
-                <span style={{ marginBottom: "20px", fontWeight: "bold" }}>
+                <span style={{fontWeight: "bold" }}>
                   LSTM
                 </span>{" "}
                 <div
@@ -108,6 +111,7 @@ export default function Prediction() {
                     padding: "10px",
                     color: "black",
                     borderRadius: "8px",
+                    marginTop:"10px"
                   }}
                 >
                   {Number(prediction.LSTM).toFixed(2)}
@@ -124,10 +128,9 @@ export default function Prediction() {
                 }}
               >
                 {prediction.LSTM !== undefined ? "  " : ""}
-                <span>
+                <span style={{ marginBottom: "600px" }}>
                   <span
                     style={{
-                      marginBottom: "20px",
                       color: "white",
                       fontWeight: "bold",
                     }}
@@ -142,6 +145,7 @@ export default function Prediction() {
                     fontWeight: "normal",
                     padding: "10px",
                     borderRadius: "8px",
+                     marginTop:"10px"
                   }}
                 >
                   {Number(prediction.GRU).toFixed(2)}
@@ -155,7 +159,7 @@ export default function Prediction() {
               color: "white",
               fontWeight: "bold",
               backgroundColor: "#4A3699",
-              padding: "20px",
+              padding: "15px",
               borderRadius: "10px",
               border: "2px solid skyblue",
               textAlign: "center",
@@ -176,8 +180,9 @@ export default function Prediction() {
                 color: "black",
                 backgroundColor: "white",
                 fontWeight: "normal",
-                padding: "8px",
+                padding: "15px",
                 borderRadius: "8px",
+                marginTop:"4px"
               }}
             >
               {Number(averagePrediction).toFixed(2)}
@@ -191,7 +196,7 @@ export default function Prediction() {
           color: "white",
           textDecoration: "none",
           position: "absolute",
-          top: "30px",
+          top: "25px",
           left: "10px",
           padding: "20px",
         }}
